@@ -71,9 +71,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cqs.SampleApp.Core\Cqs.SampleApp.Core.csproj">
+    <ProjectReference Include="..\Cqs.SampleApp.Core\Cqs.BareMetal.Core.csproj">
       <Project>{5C0B9487-B273-4738-874B-BD4FA7CDB738}</Project>
-      <Name>Cqs.SampleApp.Core</Name>
+      <Name>Cqs.BareMetal.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
