@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using Cqs.SampleApp.Core.Cqs.Data;
-using Cqs.SampleApp.Core.DataAccess;
 using log4net;
 
-namespace Cqs.SampleApp.Core.Cqs
+namespace Cqs.SampleApp.Core
 {
     public abstract class CommandHandler<TRequest, TResult> : ICommandHandler<TRequest, TResult>
         where TRequest : ICommand

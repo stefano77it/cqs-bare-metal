@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using Cqs.SampleApp.Core.Cqs.Data;
-using Cqs.SampleApp.Core.DataAccess;
 using log4net;
 
-namespace Cqs.SampleApp.Core.Cqs
+namespace Cqs.SampleApp.Core
 {
     public abstract class QueryHandler<TParameter, TResult> : IQueryHandler<TParameter, TResult>
         where TResult : IResult, new()
@@ -31,7 +29,7 @@ namespace Cqs.SampleApp.Core.Cqs
                 //do authorization and validatiopn
 
                 //handle the query request
-                _queryResult = Handle(query);
+                _queryResult = DoHandle(query);
                 
             }
             catch (Exception _exception)
@@ -55,7 +53,7 @@ namespace Cqs.SampleApp.Core.Cqs
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        protected abstract TResult Handle(TParameter request);
+        protected abstract TResult DoHandle(TParameter request);
         
     }
 }

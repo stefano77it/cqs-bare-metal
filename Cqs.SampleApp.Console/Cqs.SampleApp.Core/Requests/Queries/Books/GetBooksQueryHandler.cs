@@ -1,8 +1,6 @@
 ﻿using System.Linq;
-using Cqs.SampleApp.Core.Cqs;
-using Cqs.SampleApp.Core.DataAccess;
 
-namespace Cqs.SampleApp.Console.Requests.Queries.Books
+namespace Cqs.SampleApp.Core
 {
     public class GetBooksQueryHandler : QueryHandler<GetBooksQuery, GetBooksQueryResult>
     {
@@ -11,7 +9,7 @@ namespace Cqs.SampleApp.Console.Requests.Queries.Books
         {
         }
 
-        protected override GetBooksQueryResult Handle(GetBooksQuery request)
+        protected override GetBooksQueryResult DoHandle(GetBooksQuery request)
         {
             var _result = new GetBooksQueryResult();
 

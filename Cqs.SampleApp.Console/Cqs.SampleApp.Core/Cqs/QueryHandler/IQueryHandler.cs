@@ -1,6 +1,4 @@
-﻿using Cqs.SampleApp.Core.Cqs.Data;
-
-namespace Cqs.SampleApp.Core.Cqs
+﻿namespace Cqs.SampleApp.Core
 {
     /// <summary>
     /// Base interface for query handlers

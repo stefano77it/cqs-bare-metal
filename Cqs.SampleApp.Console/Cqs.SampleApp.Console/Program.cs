@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cqs.SampleApp.Console.Infrastructure;
-using Cqs.SampleApp.Console.Requests.Commands;
-using Cqs.SampleApp.Console.Requests.Queries.Books;
-using Cqs.SampleApp.Core.Cqs;
-using Cqs.SampleApp.Core.DataAccess;
-using Cqs.SampleApp.Core.Domain;
-using Cqs.SampleApp.Core.IoC;
+using Cqs.SampleApp.Core;
 using log4net;
 
 namespace Cqs.SampleApp.Console
@@ -17,74 +11,68 @@ namespace Cqs.SampleApp.Console
     internal class Program
     {
         private static readonly ILog _Log = LogManager.GetLogger(typeof(Program).Name);
-        
+
         private static void Main(string[] args)
         {
 
             _Log.Info("Bootsrapping application..");
 
-            var _container = Bootstrapper.Bootstrap();
+            ApplicationDbContext _context = new ApplicationDbContext();
 
-            //WithoutCqs(_container);
+            //WithoutCqs(_context);
 
-            WithCqs(_container);
+            WithCqs(_context);
 
             System.Console.ReadLine();
         }
 
-        private static void WithCqs(IAutofacContainer container)
+        private static void WithCqs(ApplicationDbContext _context)
         {
-            //var _commandDispatcher = container.Resolve<ICommandDispatcher>();
-            var _queryDispatcher = container.Resolve<IQueryDispatcher>();
+            QueryDispatcher _queryDispatcher = new QueryDispatcher(_context);
 
-            var _response = _queryDispatcher.Dispatch<GetBooksQuery, GetBooksQueryResult>(new GetBooksQuery());
-
-            _Log.Info("Retrieving all books the CQS Way..");
-
-            foreach (var _book in _response.Books)
-            {
-                _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession);
-            }
-
-            var _commandDispatcher = container.Resolve<ICommandDispatcher>();
-
-            //edit first book
-            var _bookToEdit = _response.Books.First();
-            _bookToEdit.InMyPossession = !_bookToEdit.InMyPossession;
-            _commandDispatcher.Dispatch<SaveBookCommand, SaveBookCommandResult>(new SaveBookCommand()
-            {
-                Book = _bookToEdit
-            });
-
+            CommandDispatcher _commandDispatcher = new CommandDispatcher(_context);
 
             //add new book
-            _commandDispatcher.Dispatch<SaveBookCommand, SaveBookCommandResult>(new SaveBookCommand()
+            _commandDispatcher.Dispatch(new SaveBookCommand()
             {
                 Book = new Book()
                 {
-                    Title = "C# in Depth",
-                    Authors = "Jon Skeet",
+                    Title = "C# in Depth#2",
+                    Authors = "Jon Skeet#2",
                     InMyPossession = false,
                     DatePublished = new DateTime(2013, 07, 01)
                 }
             });
 
-
-            _response = _queryDispatcher.Dispatch<GetBooksQuery, GetBooksQueryResult>(new GetBooksQuery());
-
+            // read all books + print them
+            GetBooksQueryResult _response = (GetBooksQueryResult)_queryDispatcher.Dispatch(new GetBooksQuery());
+            _Log.Info("Retrieving all books the CQS Way..");
             foreach (var _book in _response.Books)
+            { _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession); }
+
+            //edit first book
+            var _bookToEdit = _response.Books.First();
+            _bookToEdit.InMyPossession = !_bookToEdit.InMyPossession;
+            _commandDispatcher.Dispatch(new SaveBookCommand()
             {
-                _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession);
-            }
+                Book = new Book()
+                {
+                    Title = "C# in Depth#2",
+                    Authors = "Jon Skeet#2",
+                    InMyPossession = false,
+                    DatePublished = new DateTime(2013, 07, 01)
+                }
+            });
+
+            // read all books + print them
+            _response = (GetBooksQueryResult)_queryDispatcher.Dispatch(new GetBooksQuery());
+            foreach (var _book in _response.Books)
+            { _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession); }
         }
 
 
-        private static void WithoutCqs(IAutofacContainer container)
+        private static void WithoutCqs(ApplicationDbContext _context)
         {
-
-            //resolve context
-            var _context = container.Resolve<ApplicationDbContext>();
-            
             //save some books if there are none in the database
             if (!_context.Books.Any())
             {
@@ -103,8 +91,6 @@ namespace Cqs.SampleApp.Console
                     InMyPossession = false,
                     DatePublished = new DateTime(2011, 05, 13),
                 });
-
-                _context.SaveChanges();
 
                 _Log.Info("Books saved..");
             }

@@ -1,9 +1,8 @@
 ﻿using System;
-using Cqs.SampleApp.Core.DataAccess;
 
-namespace Cqs.SampleApp.Core.Domain
+namespace Cqs.SampleApp.Core
 {
-    public class Book : DbBaseModel
+    public class Book
     {
         public string Title { get; set; }
         public string Authors { get; set; }

@@ -1,16 +1,14 @@
-﻿using System.Data.Entity;
-using Cqs.SampleApp.Core.Domain;
+﻿using System.Collections.Generic;
 
-namespace Cqs.SampleApp.Core.DataAccess
+namespace Cqs.SampleApp.Core
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext
     {
-        public ApplicationDbContext(string connectionString)
-            : base(connectionString)
-        {
-            this.Configuration.LazyLoadingEnabled = false;
-        }
+        public List<Book> Books { get; set; }
 
-        public virtual IDbSet<Book> Books => Set<Book>();
+        public ApplicationDbContext()
+        {
+            Books = new List<Book>();
+        }
     }
 }

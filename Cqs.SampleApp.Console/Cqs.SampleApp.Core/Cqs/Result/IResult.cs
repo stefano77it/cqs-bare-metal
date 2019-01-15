@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core.Cqs.Data
+﻿namespace Cqs.SampleApp.Core
 {
     public interface IResult
     {

@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core.Constants
+﻿namespace Cqs.SampleApp.Core
 {
     public static class Constants
     {
