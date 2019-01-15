@@ -19,9 +19,11 @@ namespace Cqs.SampleApp.Console
 
             ApplicationDbContext _context = new ApplicationDbContext();
 
-            //WithoutCqs(_context);
-
+            _Log.Info("WithCqs..");
             WithCqs(_context);
+
+            _Log.Info("WithoutCqs..");
+            WithoutCqs(_context);
 
             System.Console.ReadLine();
         }

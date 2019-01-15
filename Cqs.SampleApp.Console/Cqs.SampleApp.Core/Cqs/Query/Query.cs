@@ -2,7 +2,7 @@
 
 namespace Cqs.SampleApp.Core
 {
-    public abstract class Query : Request, IQuery
+    public abstract class Query : IQuery
     {
     }
 }

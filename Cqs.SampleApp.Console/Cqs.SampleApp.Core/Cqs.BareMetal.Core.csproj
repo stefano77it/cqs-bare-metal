@@ -53,14 +53,14 @@
     <Compile Include="Cqs\Command\Command.cs" />
     <Compile Include="Cqs\Result\IResult.cs" />
     <Compile Include="Cqs\Query\Query.cs" />
-    <Compile Include="Cqs\Request\Request.cs" />
+    <None Include="zOld\Request\Request.cs.old" />
     <Compile Include="Cqs\Command\ICommand.cs" />
     <Compile Include="Cqs\CommandDispatcher\ICommandDispatcher.cs" />
     <Compile Include="Cqs\CommandHandler\ICommandHandler.cs" />
     <Compile Include="Cqs\Query\IQuery.cs" />
     <Compile Include="Cqs\QueryDispatcher\IQueryDispatcher.cs" />
     <Compile Include="Cqs\QueryHandler\IQueryHandler.cs" />
-    <Compile Include="Cqs\Request\IRequest.cs" />
+    <None Include="zOld\Request\IRequest.cs.old" />
     <Compile Include="Cqs\QueryDispatcher\QueryDispatcher.cs" />
     <Compile Include="Cqs\QueryHandler\QueryHandler.cs" />
     <Compile Include="DataAccess\ApplicationContext.cs" />

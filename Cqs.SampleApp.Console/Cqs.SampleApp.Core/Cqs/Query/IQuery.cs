@@ -3,7 +3,7 @@
     /// <summary>
     /// Marker interface to mark a query
     /// </summary>
-    public interface IQuery : IRequest
+    public interface IQuery
     {
     }
 }

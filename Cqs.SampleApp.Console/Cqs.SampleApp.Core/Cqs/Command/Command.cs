@@ -1,6 +1,6 @@
 ﻿namespace Cqs.SampleApp.Core
 {
-    public abstract class Command : Request, ICommand
+    public abstract class Command : ICommand
     {
     }
 }
