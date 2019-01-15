@@ -79,7 +79,6 @@ namespace Cqs.SampleApp.Console
             }
         }
 
-
         private static void WithoutCqs(ApplicationDbContext _context)
         {
             //save some books if there are none in the database

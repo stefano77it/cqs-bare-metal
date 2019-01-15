@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\Constants.cs" />
+    <None Include="zOld\Constants\Constants.cs.old" />
     <Compile Include="Cqs\CommandDispatcher\CommandDispatcher.cs" />
     <Compile Include="Cqs\CommandHandler\CommandHandler.cs" />
     <Compile Include="Cqs\Command\Command.cs" />
