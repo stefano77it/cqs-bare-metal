@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using log4net;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     public abstract class CommandHandler<TRequest, TResult> : ICommandHandler<TRequest, TResult>
         where TRequest : ICommand

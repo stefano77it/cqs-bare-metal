@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core.DataAccess
+﻿namespace CqsBareMetal.Server.DataAccess
 {
     public abstract class DbBaseModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     public class SaveBookCommandResult : IResult
     {

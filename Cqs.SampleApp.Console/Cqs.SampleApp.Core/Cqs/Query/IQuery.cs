@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core
+﻿namespace CqsBareMetal.Server
 {
     /// <summary>
     /// Marker interface to mark a query

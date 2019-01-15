@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     public class GetBooksQuery : Query
     {

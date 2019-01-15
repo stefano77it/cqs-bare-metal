@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core
+﻿namespace CqsBareMetal.Server
 {
     /// <summary>
     /// Dispatches a query and invokes the corresponding handler

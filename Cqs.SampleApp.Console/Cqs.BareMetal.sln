@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqs.BareMetal.Console", "Cqs.SampleApp.Console\Cqs.BareMetal.Console.csproj", "{8C73DA64-362F-4149-BB04-D73898201A50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Console", "Cqs.SampleApp.Console\CqsBareMetal.Console.csproj", "{8C73DA64-362F-4149-BB04-D73898201A50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqs.BareMetal.Core", "Cqs.SampleApp.Core\Cqs.BareMetal.Core.csproj", "{5C0B9487-B273-4738-874B-BD4FA7CDB738}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Server", "Cqs.SampleApp.Core\CqsBareMetal.Server.csproj", "{5C0B9487-B273-4738-874B-BD4FA7CDB738}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

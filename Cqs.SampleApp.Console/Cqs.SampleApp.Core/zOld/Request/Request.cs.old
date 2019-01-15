@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Principal;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     // TODO serve???
     public abstract class Request : IRequest

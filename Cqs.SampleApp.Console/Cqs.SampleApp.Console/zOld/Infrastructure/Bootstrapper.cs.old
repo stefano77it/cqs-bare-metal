@@ -3,7 +3,7 @@ using Cqs.SampleApp.Core.Cqs;
 using Cqs.SampleApp.Core.DataAccess;
 using Cqs.SampleApp.Core.IoC;
 
-namespace Cqs.SampleApp.Console.Infrastructure
+namespace CqsBareMetal.Console.Infrastructure
 {
     public static class Bootstrapper
     {

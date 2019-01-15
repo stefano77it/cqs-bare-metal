@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     public abstract class Query : IQuery
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Cqs.SampleApp.Core
+namespace CqsBareMetal.Server
 {
     /// <summary>
     /// Passed around to all allow dispatching a command and to be mocked by unit tests

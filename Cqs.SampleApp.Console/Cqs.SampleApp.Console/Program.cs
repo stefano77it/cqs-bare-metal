@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cqs.SampleApp.Core;
+using CqsBareMetal.Server;
 using log4net;
 
-namespace Cqs.SampleApp.Console
+namespace CqsBareMetal.Console
 {
     internal class Program
     {

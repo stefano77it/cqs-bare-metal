@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core
+﻿namespace CqsBareMetal.Server
 {
     /// <summary>
     /// Base interface for command handlers

@@ -1,4 +1,4 @@
-﻿namespace Cqs.SampleApp.Core
+﻿namespace CqsBareMetal.Server
 {
     public class SaveBookCommandHandler : CommandHandler<SaveBookCommand, SaveBookCommandResult>
     {

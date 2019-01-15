@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cqs.SampleApp.Core.IoC
+namespace CqsBareMetal.Server.IoC
 {
     public interface IAutofacContainer
     {
