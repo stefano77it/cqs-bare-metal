@@ -35,7 +35,7 @@ namespace Cqs.SampleApp.Console
             CommandDispatcher _commandDispatcher = new CommandDispatcher(_context);
 
             //add new book
-            _commandDispatcher.Dispatch(new SaveBookCommand()
+            SaveBookCommandResult cmdResult = ResultConvert<SaveBookCommandResult>(_commandDispatcher.Dispatch(new SaveBookCommand()
             {
                 Book = new Book()
                 {
@@ -44,10 +44,10 @@ namespace Cqs.SampleApp.Console
                     InMyPossession = false,
                     DatePublished = new DateTime(2013, 07, 01)
                 }
-            });
+            }));
 
             // read all books + print them
-            GetBooksQueryResult _response = (GetBooksQueryResult)_queryDispatcher.Dispatch(new GetBooksQuery());
+            GetBooksQueryResult _response = ResultConvert<GetBooksQueryResult>(_queryDispatcher.Dispatch(new GetBooksQuery()));
             _Log.Info("Retrieving all books the CQS Way..");
             foreach (var _book in _response.Books)
             { _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession); }
@@ -55,7 +55,7 @@ namespace Cqs.SampleApp.Console
             //edit first book
             var _bookToEdit = _response.Books.First();
             _bookToEdit.InMyPossession = !_bookToEdit.InMyPossession;
-            _commandDispatcher.Dispatch(new SaveBookCommand()
+            cmdResult = ResultConvert<SaveBookCommandResult>(_commandDispatcher.Dispatch(new SaveBookCommand()
             {
                 Book = new Book()
                 {
@@ -64,12 +64,19 @@ namespace Cqs.SampleApp.Console
                     InMyPossession = false,
                     DatePublished = new DateTime(2013, 07, 01)
                 }
-            });
+            }));
 
             // read all books + print them
-            _response = (GetBooksQueryResult)_queryDispatcher.Dispatch(new GetBooksQuery());
+            _response = ResultConvert<GetBooksQueryResult>(_queryDispatcher.Dispatch(new GetBooksQuery()));
             foreach (var _book in _response.Books)
             { _Log.InfoFormat("Title: {0}, Authors: {1}, InMyPossession: {2}", _book.Title, _book.Authors, _book.InMyPossession); }
+
+            // local function to intercept mismatch from the server reply and the expected type
+            TResult ResultConvert<TResult>(object result)
+            {
+                if (!(result is TResult)) throw new InvalidOperationException("server call error, return not of the expected type");
+                return (TResult)result;
+            }
         }
 
 
