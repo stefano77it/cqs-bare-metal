@@ -2,7 +2,6 @@
 
 namespace Cqs.SampleApp.Core
 {
-    /// <inheritdoc />
     public class CommandDispatcher : ICommandDispatcher
     {
         private ApplicationDbContext _Context { get; }

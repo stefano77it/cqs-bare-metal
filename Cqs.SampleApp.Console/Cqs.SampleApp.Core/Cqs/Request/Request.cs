@@ -3,6 +3,7 @@ using System.Security.Principal;
 
 namespace Cqs.SampleApp.Core
 {
+    // TODO serve???
     public abstract class Request : IRequest
     {
         protected Request()
