@@ -1,16 +1,17 @@
 ﻿using System;
 
-namespace CqsBareMetal.Server
+namespace CqsBareMetal.Apis.v1
 {
-    public class Book
+    public class SaveBookCommand : Command
     {
         public string Title { get; }
-        public bool InMyPossession { get; set; }
+        public bool InMyPossession { get; }
 
-        public Book(string title, bool inMyPossession)
+        public SaveBookCommand(string title, bool inMyPossession)
         {
             Title = title ?? throw new ArgumentNullException(nameof(title));  // can't be null
             InMyPossession = inMyPossession;  // not null by type
         }
     }
 }
+

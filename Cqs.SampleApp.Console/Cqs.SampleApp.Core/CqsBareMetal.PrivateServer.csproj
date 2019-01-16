@@ -33,6 +33,9 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSharpFunctionalExtensions, Version=1.15.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpFunctionalExtensions.1.15.2\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -49,36 +52,33 @@
   <ItemGroup>
     <None Include="zOld\Constants\Constants.cs.old" />
     <Compile Include="Cqs\CommandDispatcher\CommandDispatcher.cs" />
-    <Compile Include="Cqs\CommandHandler\CommandHandler.cs" />
-    <Compile Include="Cqs\Command\Command.cs" />
-    <Compile Include="Cqs\Result\IResult.cs" />
-    <Compile Include="Cqs\Query\Query.cs" />
+    <None Include="zOld\CommandHandler\CommandHandler.cs.old" />
     <None Include="zOld\Request\Request.cs.old" />
-    <Compile Include="Cqs\Command\ICommand.cs" />
-    <Compile Include="Cqs\CommandDispatcher\ICommandDispatcher.cs" />
+    <None Include="zOld\CommandDispatcher\ICommandDispatcher.cs.old" />
     <Compile Include="Cqs\CommandHandler\ICommandHandler.cs" />
-    <Compile Include="Cqs\Query\IQuery.cs" />
-    <Compile Include="Cqs\QueryDispatcher\IQueryDispatcher.cs" />
+    <None Include="zOld\QueryDispatcher\IQueryDispatcher.cs.old" />
     <Compile Include="Cqs\QueryHandler\IQueryHandler.cs" />
     <None Include="zOld\Request\IRequest.cs.old" />
     <Compile Include="Cqs\QueryDispatcher\QueryDispatcher.cs" />
-    <Compile Include="Cqs\QueryHandler\QueryHandler.cs" />
+    <None Include="zOld\QueryHandler\QueryHandler.cs.old" />
     <Compile Include="DataAccess\ApplicationContext.cs" />
-    <Compile Include="Requests\Commands\SaveBookCommandResult.cs" />
-    <Compile Include="Requests\Commands\SaveBookCommand.cs" />
-    <Compile Include="Requests\Commands\SaveBookCommandHandler.cs" />
-    <Compile Include="Requests\Queries\Books\GetBooksQueryResult.cs" />
-    <Compile Include="Requests\Queries\Books\GetBooksQuery.cs" />
-    <Compile Include="Requests\Queries\Books\GetBooksQueryHandler.cs" />
     <None Include="zOld\DataAccess\DbBaseModel.cs.old" />
-    <Compile Include="Domain\Book.cs" />
     <None Include="zOld\IoC\AutofacContainer.cs.old" />
     <None Include="zOld\IoC\IContainer.cs.old" />
+    <Compile Include="Domain\Book.cs" />
+    <Compile Include="Handlers\Commands\SaveBookCommandHandler.cs" />
+    <Compile Include="Handlers\Queries\Books\GetBooksQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CqsBareMetal.Apis.v1\CqsBareMetal.Apis.v1.csproj">
+      <Project>{54e146f1-c745-4877-90ed-55634a1d827d}</Project>
+      <Name>CqsBareMetal.Apis.v1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

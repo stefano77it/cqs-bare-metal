@@ -4,7 +4,7 @@ using log4net;
 
 namespace CqsBareMetal.Server
 {
-    public abstract class QueryHandler<TParameter, TResult> : IQueryHandler<TParameter, TResult>
+    public abstract class QueryHandler<TParameter, TResult>
         where TResult : IResult, new()
         where TParameter : IQuery, new()
     {

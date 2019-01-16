@@ -1,4 +1,4 @@
-﻿namespace CqsBareMetal.Server
+﻿namespace CqsBareMetal.Apis.v1
 {
     /// <summary>
     /// Marker interface to mark a query
