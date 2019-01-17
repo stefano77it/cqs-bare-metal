@@ -47,18 +47,18 @@
     <Compile Include="Commands\SaveBookCommand.cs" />
     <Compile Include="Commands\SaveBookCommandError.cs" />
     <Compile Include="Commands\SaveBookCommandResult.cs" />
-    <Compile Include="Command\Command.cs" />
-    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\Command_Base.cs" />
     <Compile Include="Queries\Books\GetBooksQuery.cs" />
     <Compile Include="Queries\Books\GetBooksQueryError.cs" />
     <Compile Include="Queries\Books\GetBooksQueryResult.cs" />
-    <Compile Include="Query\IQuery.cs" />
-    <Compile Include="Query\Query.cs" />
+    <Compile Include="Query\Query_Base.cs" />
     <Compile Include="Result_Error\IError.cs" />
     <Compile Include="Result_Error\IResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\ICommand.cs" />
     <None Include="packages.config" />
+    <Compile Include="Query\IQuery.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

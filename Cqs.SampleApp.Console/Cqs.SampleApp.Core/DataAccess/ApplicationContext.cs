@@ -1,14 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using CqsBareMetal.Apis.v1;
 
 namespace CqsBareMetal.Server
 {
-    public class ApplicationDbContext
+    public class ApplicationContext
     {
-        public List<Book> Books { get; set; }
+        // properties accessible to all other internal classes
+        internal Dictionary<Guid, ICommand> ProcessedCommands { get; }
 
-        public ApplicationDbContext()
+        public List<Book> Books { get; }
+
+        public ApplicationContext()
         {
             Books = new List<Book>();
+            ProcessedCommands = new Dictionary<Guid, ICommand>();
         }
     }
 }

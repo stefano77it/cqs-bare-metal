@@ -1,6 +1,6 @@
 ﻿namespace CqsBareMetal.Apis.v1
 {
-    public class GetBooksQuery : Query
+    public class GetBooksQuery : Query_Base
     {
         public bool ShowOnlyInPossession { get; }
 

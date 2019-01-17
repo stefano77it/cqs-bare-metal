@@ -10,10 +10,8 @@ namespace CqsBareMetal.Server
         {
         }
 
-        public Result<TResult, TError> Dispatch<TResult, TError>(ApplicationDbContext context, ICommand command)
+        public Result<TResult, TError> Dispatch<TResult, TError>(ApplicationContext context, ICommand command)
         {
-            ApplicationDbContext _Context = context ?? throw new ArgumentNullException(nameof(context));
-
             if (command == null) throw new ArgumentNullException(nameof(command));
 
             Result<TResult, TError> ret;
@@ -21,8 +19,8 @@ namespace CqsBareMetal.Server
             switch (command)
             {
                 case SaveBookCommand cmd:
-                    SaveBookCommandHandler handler = new SaveBookCommandHandler();
-                    ret = ConvertResult(handler.Handle(_Context, cmd));
+                    SaveBookCommandHandler handler = new SaveBookCommandHandler(context);
+                    ret = ConvertResult(handler.Handle(cmd));
                     break;
                 default:  // if the value is not recognized
                     throw new ArgumentException(nameof(command));
@@ -33,7 +31,7 @@ namespace CqsBareMetal.Server
             // local function to intercept mismatch from the server reply and the expected type
             Result<TResult, TError> ConvertResult(object result)
             {
-                if (!(result is Result<TResult, TError>)) throw new InvalidOperationException("server call error, return not of the expected type");
+                if (!(result is Result<TResult, TError>)) throw new InvalidOperationException("Server error -> Command dispatch error -> return not of the expected type");
                 Result<TResult, TError> _result = (Result<TResult, TError>)result;  // cast to correct type
                 return _result;
             }

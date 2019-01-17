@@ -26,7 +26,7 @@ namespace CqsBareMetal.Server
 
             try
             {
-                //do authorization and validatiopn
+                //do authorization and validation
 
                 //handle the query request
                 _queryResult = DoHandle(query);

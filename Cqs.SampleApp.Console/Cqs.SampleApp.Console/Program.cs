@@ -16,9 +16,16 @@ namespace CqsBareMetal.Console
 
         private static void Main(string[] args)
         {
-            _Log.Info("Bootsrapping application..");
+            ApiServer2 _ServerType2_UsingDirectMethodCalls = new ApiServer2();
+            ApiServer _ServerType1_UsingDispatcher = new ApiServer();
 
-            ApiServer _server = new ApiServer();
+            ServerCall(_ServerType2_UsingDirectMethodCalls);  // <-- prefer direct calls; handlers are shorter and clearer
+            //ServerCall(_ServerType1_UsingDispatcher);  // <-- with dispatcher handlers are longer and less clear
+        }
+
+        private static void ServerCall(IApiServer _server)
+        {
+            _Log.Info("Bootsrapping application..");
 
             _Log.Info("WithCqs..");
 
@@ -28,8 +35,9 @@ namespace CqsBareMetal.Console
 
             //add new book
             cmdResult = _server.SaveBook(new SaveBookCommand("C# in Depth#1", false));
+            PrintCommand("Add 1 book", cmdResult);
             cmdResult = _server.SaveBook(new SaveBookCommand("C# in Depth#2", true));
-            PrintCommand("Add 2 books", cmdResult);
+            PrintCommand("Add 1 book", cmdResult);
 
             // read all books + print them
             queryResult = _server.GetBooks(new GetBooksQuery(false));
@@ -44,28 +52,25 @@ namespace CqsBareMetal.Console
             PrintQuery("Filtered books query", queryResult);
 
             System.Console.ReadLine();
+        }
+        private static void PrintCommand(string msg, Result<SaveBookCommandResult, SaveBookCommandError> command)
+        {
+            if (command.IsFailure)
+            { _Log.InfoFormat($"{msg} Error: {command.Error.Value}"); }
+            else
+            { _Log.InfoFormat($"{msg} Success"); }
+        }
 
-            void PrintCommand(string msg, Result<SaveBookCommandResult, SaveBookCommandError> command)
+        private static void PrintQuery(string msg, Result<GetBooksQueryResult, GetBooksQueryError> query)
+        {
+            if (query.IsFailure)
+            { _Log.InfoFormat($"{msg} Error: {query.Error.Value}"); }
+            else
             {
-                _Log.Info("Executing command the CQS Way..");
-                if (command.IsFailure)
-                { _Log.InfoFormat($"{msg} Error: {command.Error}"); }
-                else
-                { _Log.InfoFormat($"{msg} Success"); }
-            }
-
-            void PrintQuery(string msg, Result<GetBooksQueryResult, GetBooksQueryError> query)
-            {
-                _Log.Info("Retrieving all books the CQS Way..");
-                if (query.IsFailure)
-                { _Log.InfoFormat($"{msg} Error: {query.Error}"); }
-                else
+                _Log.InfoFormat($"{msg} Success");
+                foreach (var _book in query.Value.Books)
                 {
-                    _Log.InfoFormat($"{msg} Success");
-                    foreach (var _book in query.Value.Books)
-                    {
-                        _Log.InfoFormat($"Title: {_book.Title}, InMyPossession: {_book.InMyPossession}");
-                    }
+                    _Log.InfoFormat($"Title: {_book.Title}, InMyPossession: {_book.InMyPossession}");
                 }
             }
         }

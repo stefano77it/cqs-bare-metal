@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis.Server2_no_dispatcher\Server2-GetBooks.cs" />
+    <Compile Include="Apis.Server2_no_dispatcher\Server2-SaveBook.cs" />
+    <Compile Include="Apis.Server2_no_dispatcher\Server2-_.cs" />
+    <Compile Include="IApiServer\IApiServer.cs" />
     <Compile Include="Apis.Server\Server-GetBooks.cs" />
     <Compile Include="Apis.Server\Server-SaveBook.cs" />
     <Compile Include="Apis.Server\Server-_.cs" />

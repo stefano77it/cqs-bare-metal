@@ -6,7 +6,7 @@ using log4net;
 
 namespace CqsBareMetal.Apis.Server.v1
 {
-    public partial class ApiServer
+    public partial class ApiServer : IApiServer
     {
         public Result<GetBooksQueryResult, GetBooksQueryError> GetBooks(GetBooksQuery query)
         {

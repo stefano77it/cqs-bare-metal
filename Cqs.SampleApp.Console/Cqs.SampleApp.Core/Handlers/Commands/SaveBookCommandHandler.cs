@@ -4,25 +4,32 @@ using CSharpFunctionalExtensions;
 
 namespace CqsBareMetal.Server
 {
-    internal class SaveBookCommandHandler : ICommandHandler
+    public class SaveBookCommandHandler : CommandHandler_Base<SaveBookCommand, SaveBookCommandResult, SaveBookCommandError>
     {
-        internal SaveBookCommandHandler()
+        public SaveBookCommandHandler(ApplicationContext context):base(context)
         { }
 
-        internal Result<SaveBookCommandResult, SaveBookCommandError> 
-            Handle(ApplicationDbContext context, SaveBookCommand request)
+        // protected method, callable only through base class public methods
+        protected override Result<SaveBookCommandResult, SaveBookCommandError> 
+            DoHandle(SaveBookCommand request)
         {
-            if (context is null) throw new ArgumentNullException(nameof(context));  // can't be null
             if (request is null) throw new ArgumentNullException(nameof(request));  // can't be null
 
             var _response = new SaveBookCommandResult();
 
             //add the book
             Book book = new Book(request.Title, request.InMyPossession);
-            context.Books.Add(book);
+            _Context.Books.Add(book);
 
             // return
             return Result.Ok<SaveBookCommandResult, SaveBookCommandError>(_response);
+        }
+
+        // protected method, callable only through base class public methods
+        protected override Result<SaveBookCommandResult, SaveBookCommandError> InternalServerError()
+        {
+            return Result.Fail<SaveBookCommandResult, SaveBookCommandError>
+                (SaveBookCommandError.Set_InternalServerError);
         }
     }
 }

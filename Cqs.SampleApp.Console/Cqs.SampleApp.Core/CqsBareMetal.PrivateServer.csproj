@@ -50,16 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\CommandHandler_Base.cs" />
+    <Compile Include="Handlers\QueryHandler_Base.cs" />
     <None Include="zOld\Constants\Constants.cs.old" />
-    <Compile Include="Cqs\CommandDispatcher\CommandDispatcher.cs" />
+    <Compile Include="Cqs\CommandDispatcher.USED ONLY BY SERVER tpye 1\CommandDispatcher.cs" />
     <None Include="zOld\CommandHandler\CommandHandler.cs.old" />
     <None Include="zOld\Request\Request.cs.old" />
     <None Include="zOld\CommandDispatcher\ICommandDispatcher.cs.old" />
-    <Compile Include="Cqs\CommandHandler\ICommandHandler.cs" />
+    <None Include="zOld\CommandHandler\ICommandHandler.cs.old" />
     <None Include="zOld\QueryDispatcher\IQueryDispatcher.cs.old" />
-    <Compile Include="Cqs\QueryHandler\IQueryHandler.cs" />
+    <None Include="zOld\QueryHandler\IQueryHandler.cs.old" />
     <None Include="zOld\Request\IRequest.cs.old" />
-    <Compile Include="Cqs\QueryDispatcher\QueryDispatcher.cs" />
+    <Compile Include="Cqs\QueryDispatcher.USED ONLY BY SERVER tpye 1\QueryDispatcher.cs" />
     <None Include="zOld\QueryHandler\QueryHandler.cs.old" />
     <Compile Include="DataAccess\ApplicationContext.cs" />
     <None Include="zOld\DataAccess\DbBaseModel.cs.old" />
@@ -79,6 +81,10 @@
       <Project>{54e146f1-c745-4877-90ed-55634a1d827d}</Project>
       <Name>CqsBareMetal.Apis.v1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="zOld\Command\" />
+    <Folder Include="zOld\Query\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

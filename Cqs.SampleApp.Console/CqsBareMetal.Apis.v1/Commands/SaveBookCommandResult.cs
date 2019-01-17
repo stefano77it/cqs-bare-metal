@@ -1,4 +1,5 @@
-﻿namespace CqsBareMetal.Apis.v1
+﻿using System;
+namespace CqsBareMetal.Apis.v1
 {
     public class SaveBookCommandResult : IResult
     {
