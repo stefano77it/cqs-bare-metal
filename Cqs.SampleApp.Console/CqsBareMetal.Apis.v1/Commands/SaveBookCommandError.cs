@@ -4,17 +4,28 @@ namespace CqsBareMetal.Apis.v1
 {
     public class SaveBookCommandError : IError
     {
-        public string Value { get; }
+        public string ErrorType { get; }
+        public string ErrorDetail { get; }
 
         public const string OtherError = nameof(OtherError);
         public static readonly SaveBookCommandError Set_OtherError = new SaveBookCommandError(OtherError);
 
         public const string InternalServerError = nameof(InternalServerError);
-        public static readonly SaveBookCommandError Set_InternalServerError = new SaveBookCommandError(InternalServerError);
+        // method with a standard ErrorType message and a detailed server error
+        public static SaveBookCommandError Set_InternalServerError(string errorDetail) => new SaveBookCommandError(InternalServerError, errorDetail);
 
-        private SaveBookCommandError(string value)  // We use a private constructor because this should be instantiated only through static factories
+        private SaveBookCommandError(string errorType)  // We use a private constructor because this should be instantiated only through static factories
         {
-            Value = value;
+            ErrorType = errorType ?? throw new ArgumentNullException(nameof(errorType));  // can't be null, can be empty
+            ErrorDetail = "";
+        }
+
+        private SaveBookCommandError(string errorType, string errorDetail)  // We use a private constructor because this should be instantiated only through static factories
+        {
+            ErrorType = errorType ?? throw new ArgumentNullException(nameof(errorType));  // can't be null, can be empty
+
+            if (errorDetail is null) { ErrorDetail = ""; }  // if is null, is set to ""
+            else { ErrorDetail = errorDetail; }
         }
     }
 }

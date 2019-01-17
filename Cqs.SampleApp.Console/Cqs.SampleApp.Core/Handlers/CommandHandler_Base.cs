@@ -51,11 +51,9 @@ namespace CqsBareMetal.Server
             }
             catch (Exception _exception)
             {
-                Log.ErrorFormat($"Error in {command.GetType().Name} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}");
-
-                //throw;
-                // return internal server error
-                return InternalServerError();
+                string errorMsg = $"Error in {command.GetType().Name} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}";
+                Log.ErrorFormat(errorMsg);
+                return InternalServerError(errorMsg);  // return internal server error
             }
             finally
             {
@@ -68,6 +66,6 @@ namespace CqsBareMetal.Server
         // Actual methods that will be implemented in the sub class
         // Protected, to be called only by this class
         protected abstract Result<TResult, TError> DoHandle(TRequest request);
-        protected abstract Result<TResult, TError> InternalServerError();
+        protected abstract Result<TResult, TError> InternalServerError(string errorDetail);
     }
 }

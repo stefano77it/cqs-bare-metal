@@ -52,6 +52,9 @@
   <ItemGroup>
     <Compile Include="Handlers\CommandHandler_Base.cs" />
     <Compile Include="Handlers\QueryHandler_Base.cs" />
+    <None Include="Log4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="zOld\Constants\Constants.cs.old" />
     <Compile Include="Cqs\CommandDispatcher.USED ONLY BY SERVER tpye 1\CommandDispatcher.cs" />
     <None Include="zOld\CommandHandler\CommandHandler.cs.old" />

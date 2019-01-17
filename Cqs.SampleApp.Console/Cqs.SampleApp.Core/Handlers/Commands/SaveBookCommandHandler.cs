@@ -6,11 +6,11 @@ namespace CqsBareMetal.Server
 {
     public class SaveBookCommandHandler : CommandHandler_Base<SaveBookCommand, SaveBookCommandResult, SaveBookCommandError>
     {
-        public SaveBookCommandHandler(ApplicationContext context):base(context)
+        public SaveBookCommandHandler(ApplicationContext context) : base(context)
         { }
 
         // protected method, callable only through base class public methods
-        protected override Result<SaveBookCommandResult, SaveBookCommandError> 
+        protected override Result<SaveBookCommandResult, SaveBookCommandError>
             DoHandle(SaveBookCommand request)
         {
             if (request is null) throw new ArgumentNullException(nameof(request));  // can't be null
@@ -26,10 +26,10 @@ namespace CqsBareMetal.Server
         }
 
         // protected method, callable only through base class public methods
-        protected override Result<SaveBookCommandResult, SaveBookCommandError> InternalServerError()
+        protected override Result<SaveBookCommandResult, SaveBookCommandError> InternalServerError(string errorDetail)
         {
             return Result.Fail<SaveBookCommandResult, SaveBookCommandError>
-                (SaveBookCommandError.Set_InternalServerError);
+               (SaveBookCommandError.Set_InternalServerError(errorDetail));
         }
     }
 }

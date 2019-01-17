@@ -56,7 +56,7 @@ namespace CqsBareMetal.Console
         private static void PrintCommand(string msg, Result<SaveBookCommandResult, SaveBookCommandError> command)
         {
             if (command.IsFailure)
-            { _Log.InfoFormat($"{msg} Error: {command.Error.Value}"); }
+            { _Log.InfoFormat($"{msg} Error: {command.Error.ErrorType} Error detail: {command.Error.ErrorDetail}"); }
             else
             { _Log.InfoFormat($"{msg} Success"); }
         }
@@ -64,7 +64,7 @@ namespace CqsBareMetal.Console
         private static void PrintQuery(string msg, Result<GetBooksQueryResult, GetBooksQueryError> query)
         {
             if (query.IsFailure)
-            { _Log.InfoFormat($"{msg} Error: {query.Error.Value}"); }
+            { _Log.InfoFormat($"{msg} Error: {query.Error.ErrorType} Error detail: {query.Error.ErrorDetail}"); }
             else
             {
                 _Log.InfoFormat($"{msg} Success");

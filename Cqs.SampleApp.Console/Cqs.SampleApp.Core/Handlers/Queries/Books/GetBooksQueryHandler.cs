@@ -36,10 +36,10 @@ namespace CqsBareMetal.Server
         }
 
         // protected method, callable only through base class public methods
-        protected override Result<GetBooksQueryResult, GetBooksQueryError> InternalServerError()
+        protected override Result<GetBooksQueryResult, GetBooksQueryError> InternalServerError(string errorDetail)
         {
             return Result.Fail<GetBooksQueryResult, GetBooksQueryError>
-                (GetBooksQueryError.Set_InternalServerError);
+                (GetBooksQueryError.Set_InternalServerError(errorDetail));
         }
     }
 }

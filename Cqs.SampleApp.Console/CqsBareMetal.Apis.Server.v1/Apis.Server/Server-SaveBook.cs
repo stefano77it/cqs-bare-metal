@@ -20,10 +20,9 @@ namespace CqsBareMetal.Apis.Server.v1
             }
             catch (Exception _exception)  // catch every exception
             {
-                _Log.ErrorFormat($"Error in {command.GetType().Name} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}");
-
-                // return internal server error
-                return Result.Fail<SaveBookCommandResult, SaveBookCommandError>(SaveBookCommandError.Set_InternalServerError);
+                string errorMsg = $"Error in {command.GetType().Name} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}";
+                _Log.ErrorFormat(errorMsg);
+                return Result.Fail<SaveBookCommandResult, SaveBookCommandError>(SaveBookCommandError.Set_InternalServerError(errorMsg));  // return internal server error
             }
             finally
             {
