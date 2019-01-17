@@ -15,6 +15,8 @@ namespace CqsBareMetal.Server
         protected override Result<GetBooksQueryResult, GetBooksQueryError>
             DoHandle(GetBooksQuery request)
         {
+            if (request is null) throw new ArgumentNullException(nameof(request));  // can't be null
+
             List<GetBooksQueryResult.Book> books = new List<GetBooksQueryResult.Book>();
             if (request.ShowOnlyInPossession)
             {

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Apis.v1", "Cqs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Apis.Server.v1", "CqsBareMetal.Apis.Server.v1\CqsBareMetal.Apis.Server.v1.csproj", "{B94FEFA5-7B30-4353-9998-988A5C4F74B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Tests", "CqsBareMetal.Tests\CqsBareMetal.Tests.csproj", "{1CAEECDD-807C-4241-8803-414F102232D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CAEECDD-807C-4241-8803-414F102232D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CAEECDD-807C-4241-8803-414F102232D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CAEECDD-807C-4241-8803-414F102232D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CAEECDD-807C-4241-8803-414F102232D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

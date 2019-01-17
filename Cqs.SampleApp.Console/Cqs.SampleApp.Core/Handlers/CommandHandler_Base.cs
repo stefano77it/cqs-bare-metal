@@ -51,7 +51,7 @@ namespace CqsBareMetal.Server
             }
             catch (Exception _exception)
             {
-                string errorMsg = $"Error in {command.GetType().Name} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}";
+                string errorMsg = $"Error in {typeof(TRequest)} commandHandler. Message: {_exception.Message} \n Stacktrace: {_exception.StackTrace}";
                 Log.ErrorFormat(errorMsg);
                 return InternalServerError(errorMsg);  // return internal server error
             }
