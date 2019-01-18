@@ -1,0 +1,16 @@
+﻿using System;
+using System.Security.Principal;
+
+namespace ProjX.SimulationEngine
+{
+    // TODO serve???
+    public abstract class Request : IRequest
+    {
+        protected Request()
+        {
+            CorrelationId = Guid.NewGuid();
+        }
+
+        public Guid CorrelationId { get; set; }
+    }
+}

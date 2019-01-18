@@ -1,0 +1,10 @@
+﻿using System;
+
+namespace ProjX.SimulationEngine
+{
+    // TODO serve???
+    public interface IRequest
+    {
+        Guid CorrelationId { get; set; }
+    }
+}

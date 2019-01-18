@@ -1,0 +1,7 @@
+﻿namespace ProjX.SimulationEngine.DataAccess
+{
+    public abstract class DbBaseModel
+    {
+        public long Id { get; set; }
+    }
+}

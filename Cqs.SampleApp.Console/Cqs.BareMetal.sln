@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_CqsBareMetal.Console", "Cqs.SampleApp.Console\_CqsBareMetal.Console.csproj", "{8C73DA64-362F-4149-BB04-D73898201A50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjX.SimulationEngine", "ProjX.SimulationEngine\ProjX.SimulationEngine.csproj", "{5C0B9487-B273-4738-874B-BD4FA7CDB738}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.PrivateServer", "Cqs.SampleApp.Core\CqsBareMetal.PrivateServer.csproj", "{5C0B9487-B273-4738-874B-BD4FA7CDB738}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjX.SimulationEngine.Api.Caller.v1", "ProjX.SimulationEngine.Api.Caller.v1\ProjX.SimulationEngine.Api.Caller.v1.csproj", "{B94FEFA5-7B30-4353-9998-988A5C4F74B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Apis.v1", "CqsBareMetal.Apis.v1\CqsBareMetal.Apis.v1.csproj", "{54E146F1-C745-4877-90ED-55634A1D827D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjX.SimulationEngine.Api.Contracts.v1", "ProjX.SimulationEngine.Api.Contracts.v1\ProjX.SimulationEngine.Api.Contracts.v1.csproj", "{54E146F1-C745-4877-90ED-55634A1D827D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Apis.Server.v1", "CqsBareMetal.Apis.Server.v1\CqsBareMetal.Apis.Server.v1.csproj", "{B94FEFA5-7B30-4353-9998-988A5C4F74B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_ProjX.SimulationEngine.SampleApp", "ProjX.SimulationEngine.SampleApp\_ProjX.SimulationEngine.SampleApp.csproj", "{8C73DA64-362F-4149-BB04-D73898201A50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqsBareMetal.Tests", "CqsBareMetal.Tests\CqsBareMetal.Tests.csproj", "{1CAEECDD-807C-4241-8803-414F102232D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjX.SimulationEngine.Tests", "ProjX.SimulationEngine.Tests\ProjX.SimulationEngine.Tests.csproj", "{1CAEECDD-807C-4241-8803-414F102232D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,22 +19,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C73DA64-362F-4149-BB04-D73898201A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C73DA64-362F-4149-BB04-D73898201A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C73DA64-362F-4149-BB04-D73898201A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C73DA64-362F-4149-BB04-D73898201A50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C0B9487-B273-4738-874B-BD4FA7CDB738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C0B9487-B273-4738-874B-BD4FA7CDB738}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C0B9487-B273-4738-874B-BD4FA7CDB738}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C0B9487-B273-4738-874B-BD4FA7CDB738}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54E146F1-C745-4877-90ED-55634A1D827D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54E146F1-C745-4877-90ED-55634A1D827D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54E146F1-C745-4877-90ED-55634A1D827D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54E146F1-C745-4877-90ED-55634A1D827D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B94FEFA5-7B30-4353-9998-988A5C4F74B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E146F1-C745-4877-90ED-55634A1D827D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E146F1-C745-4877-90ED-55634A1D827D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E146F1-C745-4877-90ED-55634A1D827D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E146F1-C745-4877-90ED-55634A1D827D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C73DA64-362F-4149-BB04-D73898201A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C73DA64-362F-4149-BB04-D73898201A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C73DA64-362F-4149-BB04-D73898201A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C73DA64-362F-4149-BB04-D73898201A50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1CAEECDD-807C-4241-8803-414F102232D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CAEECDD-807C-4241-8803-414F102232D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CAEECDD-807C-4241-8803-414F102232D1}.Release|Any CPU.ActiveCfg = Release|Any CPU

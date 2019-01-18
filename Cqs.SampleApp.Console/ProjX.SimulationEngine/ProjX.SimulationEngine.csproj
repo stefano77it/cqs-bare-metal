@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C0B9487-B273-4738-874B-BD4FA7CDB738}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjX.SimulationEngine</RootNamespace>
+    <AssemblyName>ProjX.SimulationEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSharpFunctionalExtensions, Version=1.15.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpFunctionalExtensions.1.15.2\lib\net461\CSharpFunctionalExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers\CommandHandler_Base.cs" />
+    <Compile Include="Handlers\QueryHandler_Base.cs" />
+    <None Include="Log4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="zOld\Constants\Constants.cs.old" />
+    <Compile Include="Cqs\CommandDispatcher.USED ONLY BY SERVER tpye 1\CommandDispatcher.cs" />
+    <None Include="zOld\CommandHandler\CommandHandler.cs.old" />
+    <None Include="zOld\Request\Request.cs.old" />
+    <None Include="zOld\CommandDispatcher\ICommandDispatcher.cs.old" />
+    <None Include="zOld\CommandHandler\ICommandHandler.cs.old" />
+    <None Include="zOld\QueryDispatcher\IQueryDispatcher.cs.old" />
+    <None Include="zOld\QueryHandler\IQueryHandler.cs.old" />
+    <None Include="zOld\Request\IRequest.cs.old" />
+    <Compile Include="Cqs\QueryDispatcher.USED ONLY BY SERVER tpye 1\QueryDispatcher.cs" />
+    <None Include="zOld\QueryHandler\QueryHandler.cs.old" />
+    <Compile Include="DataAccess\ApplicationContext.cs" />
+    <None Include="zOld\DataAccess\DbBaseModel.cs.old" />
+    <None Include="zOld\IoC\AutofacContainer.cs.old" />
+    <None Include="zOld\IoC\IContainer.cs.old" />
+    <Compile Include="Domain\Book.cs" />
+    <Compile Include="Handlers\Commands\SaveBookCommandHandler.cs" />
+    <Compile Include="Handlers\Queries\Books\GetBooksQueryHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="zOld\Command\" />
+    <Folder Include="zOld\Query\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjX.SimulationEngine.Api.Contracts.v1\ProjX.SimulationEngine.Api.Contracts.v1.csproj">
+      <Project>{54e146f1-c745-4877-90ed-55634a1d827d}</Project>
+      <Name>ProjX.SimulationEngine.Api.Contracts.v1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

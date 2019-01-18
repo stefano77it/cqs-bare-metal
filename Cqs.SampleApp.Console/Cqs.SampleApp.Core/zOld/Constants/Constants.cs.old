@@ -1,7 +1,0 @@
-﻿namespace CqsBareMetal.Server
-{
-    public static class Constants
-    {
-        public static long NewId { get; set; } 
-    }
-}
